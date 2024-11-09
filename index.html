@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <audio id="comparisonSound" src="sound4.mp3" preload="auto"></audio>
+    <audio id="swapsound" src="sound.mp3" preload="auto"></audio>
+    <div class="app-container">
+      <header>
+        <h1>Sorting Algorithm Visualizer</h1>
+      </header>
+      <div class="visualizer-container">
+        <div id="barsContainer" class="bars"></div>
+      </div>
+      <div class="btn-container">
+        <div class="controls">
+          <button
+            id="startNewArrayBtn"
+            class="action-btn"
+            onclick="generateArray()"
+          >
+            Generate New Array
+          </button>
+          <button
+            id="bubbleSortButton"
+            class="action-btn"
+            onclick="bubbleSort()"
+          >
+            Bubble Sort
+          </button>
+          <button
+            id="selectionSortButton"
+            class="action-btn"
+            onclick="selectionSort()"
+          >
+            Selection Sort
+          </button>
+          <button
+            id="insertionSortButton"
+            class="action-btn"
+            onclick="insertionSort()"
+          >
+            Insertion Sort
+          </button>
+          <button id="mergeSortButton" class="action-btn" onclick="mergeSort()">
+            Merge Sort
+          </button>
+          <button id="quickSortButton" class="action-btn" onclick="quickSort()">
+            Quick Sort
+          </button>
+          <button id="heapSortButton" class="action-btn" onclick="heapSort()">
+            Heap Sort
+          </button>
+          <button id="radixSortButton" class="action-btn" onclick="radixSort()">
+            Radix Sort
+          </button>
+          <button id="cycleSortButton" class="action-btn" onclick="cycleSort()">
+            Cycle Sort
+          </button>
+        </div>
+        <div class="container">
+          <div class="slider-container">
+            <label for="arraySize">Array Size:</label>
+            <input
+              type="range"
+              id="arraySize"
+              min="10"
+              max="63"
+              value="38"
+              oninput="updateArraySize()"
+            />
+            <span id="arraySizeValue">38</span>
+          </div>
+
+          <div class="slider-container">
+            <label for="speed">Animation Speed:</label>
+            <input
+              type="range"
+              id="speed"
+              min="10"
+              max="200"
+              value="30"
+              oninput="updateSpeed()"
+            />
+            <span id="speedValue">50 ms</span>
+          </div>
+        </div>
+      </div>
+      <!-- New control buttons -->
+      <button id="refreshBtn" class="action-btn-new" onclick="refreshArray()">
+        Reset
+      </button>
+    </div>
+    <script src="sorting.js"></script>
+    <script>
+      window.onload = function () {
+        // Automatically simulate the click of the "Generate New Array" button when the page loads
+        generateArray();
+        // document.getElementById("startNewArrayBtn").click();
+      };
+    </script>
+  </body>
+</html>
